@@ -111,7 +111,7 @@ public class Main {
             System.out.println(lastDigit+"\n");
         }else if(middleDigit>lastDigit && middleDigit>firstDigit){
             System.out.println(middleDigit+"\n");
-        }else{
+        }else if (firstDigit>lastDigit && firstDigit>middleDigit){
             System.out.println(firstDigit+"\n");
         }
 
@@ -150,6 +150,55 @@ public class Main {
         System.out.println(28800-seconds+" seconds left");
         System.out.println(hours+" hours left\n");
 
+        //Доп задача 7
+        taskHard6();
+        hardTask7();
 
     }
+    public static void taskHard6() {
+        int age = 24;
+        int salary = 80_000;
+        float credit = 0f;
+        if (age > 23) {
+            credit = salary * 3;
+            if (salary >= 50_000) {
+                credit = credit * 1.2f;
+            } else if (salary >= 80_000) {
+                credit = credit* 1.5f;
+            }
+        } else {
+            credit = salary * 2;
+            if (salary >= 50_000) {
+                credit = credit * 1.2f;
+            } else if (salary >= 80_000) {
+                credit = credit * 1.5f;
+            }
+        }
+        System.out.println("Мы готовы выдать вам кредитную карту с лимитом "+credit+" рублей");
+    }
+    public static void hardTask7(){
+        int age = 25;
+        int salary = 60_000;
+        int wantedSum = 330_000;
+        float credit = 0f;
+        float coef=10f;
+        credit=wantedSum+wantedSum/100*coef;
+        float monthlyPayment = credit/12;
+        if(age<23){
+            coef+=1;
+
+        } else if (age<30) {
+            coef+=0.5;
+        }
+        if(salary>80_000){
+            coef-=0.7;
+        }
+        if(monthlyPayment>(salary/2)){
+            System.out.println("Максимальный платеж при ЗП "+salary+" равен "+salary/2+" рублей. Платеж по кредиту "+monthlyPayment+" рублей. Отказано");
+        }else{
+            System.out.println("Максимальный платеж при ЗП "+salary+" равен "+salary/2+" рублей. Платеж по кредиту "+monthlyPayment+" рублей. Одобрено");
+        }
+
+    }
+
 }
