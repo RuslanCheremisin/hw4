@@ -187,7 +187,7 @@ public class Main {
         if(age<23){
             coef+=1;
 
-        } else if (age<30) {
+        } else if (age<30 & age>=23) {
             coef+=0.5;
         }
         if(salary>80_000){
